@@ -1,7 +1,7 @@
 // very basic document.getElementsByClassName polyfill
 if (!document.getElementsByClassName) {
   document.getElementsByClassName = function (el) {
-    document.body.querySelectorAll('.'+el)
+    document.body.querySelectorAll('.'+el);
   };
 }
 
@@ -36,32 +36,30 @@ if (!window.localStorage) {
 
 function updateStepsStatus() {
   var steps = document.getElementsByClassName('step');
-  var storedStepNumber = function () { return parseInt(window.localStorage.getItem('stepNumber'),10) };
+  var storedStepNumber = function () { return parseInt(window.localStorage.getItem('stepNumber'),10); };
   for(var i=0,im=steps.length; i<im; i++) {
-    steps[i].className = 'step ' + (function () {
-      if(i < storedStepNumber()) { return ' past'; }
-      if(i === storedStepNumber()) { return ' current'; }
-      if(i > storedStepNumber()) { return ' futur'; }
-    })();
+    if(i < storedStepNumber()) { steps[i].className = 'step past'; }
+    if(i === storedStepNumber()) { steps[i].className = 'step current'; }
+    if(i > storedStepNumber()) { steps[i].className = 'step futur'; }
   }
 }
 
 function toogleStep(event) {
   var step = event.currentTarget.parentNode.parentNode;
   var stepNumber = parseInt(step.id.match(/[0-9]+$/)[0], 10);
-  var storedStepNumber = function () { return parseInt(window.localStorage.getItem('stepNumber'),10) };
+  var storedStepNumber = function () { return parseInt(window.localStorage.getItem('stepNumber'),10); };
   if( stepNumber === storedStepNumber() ) {
-    window.localStorage.setItem('stepNumber', stepNumber + 1)
+    window.localStorage.setItem('stepNumber', stepNumber + 1);
     updateStepsStatus();
   }
   else if( stepNumber < storedStepNumber() ) {
-    window.localStorage.setItem('stepNumber', stepNumber)
+    window.localStorage.setItem('stepNumber', stepNumber);
     updateStepsStatus();
   }
 }
 
 function init() {
-  var storedStepNumber = function () { return parseInt(window.localStorage.getItem('stepNumber'),10) };
+  var storedStepNumber = function () { return parseInt(window.localStorage.getItem('stepNumber'),10); };
   // load stepNumber to localStorage
   window.localStorage.setItem( 'stepNumber', storedStepNumber() || 0 );
 
@@ -69,17 +67,23 @@ function init() {
   var container,
   title,
   checkbox,
+  oldTag,
   steps = document.getElementsByClassName('step');
   for(var i=0,im=steps.length; i<im; i++) {
     steps[i].id = 'step' + i;
     container = document.createElement('h2');
     title = document.createElement('span');
     // replace the former h2 tag by a new empty one,
-    // puts its content into the title variable.
-    title.innerHTML = steps[i].replaceChild(
+    // puts its content and l10n-id into the title variable.
+    oldTag = steps[i].replaceChild(
       container,
       steps[i].getElementsByTagName('h2')[0]
-    ).innerHTML;
+    );
+/*    title.innerHTML = oldTag.innerHTML;
+    title.dataset.l10nId = oldTag.dataset.l10nId;*/
+    title.innerHTML = oldTag.innerHTML;
+    title.setAttribute('data-l10n-id', oldTag.getAttribute('data-l10n-id'));
+    oldTag = undefined;
     checkbox = document.createElement('span');
     checkbox.className = 'checkbox';
     checkbox.addEventListener('click', toogleStep, false);
