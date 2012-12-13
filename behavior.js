@@ -34,6 +34,24 @@ if (!window.localStorage) {
   window.localStorage.length = (document.cookie.match(/\=/g) || window.localStorage).length;
 }
 
+// Open Web App Installation
+(function () {
+  if( window.navigator && window.navigator.mozApps && window.navigator.mozApps.install ) {
+    var installMe = document.createElement('p');
+    installMe.style.position = 'absolute';
+    installMe.style.left = '1em';
+    installMe.style.top = '1em';
+    installMe.style.fontWeight = 'bold';
+    installMe.style.transform = 'rotate(90deg)';
+    installMe.style.transformOrigin = 'top left';
+    installMe.innerHTML = '<a data-l10n-id="webapp-install">Install me!<a>';
+    installMe.addEventListener('click',function () {
+      window.navigator.mozApps.install(document.location.href.replace('index.html', 'manifest.webapp'));
+    },false);
+    document.body.appendChild(installMe);
+  }
+})();
+
 function updateStepsStatus() {
   var steps = document.getElementsByClassName('step');
   var storedStepNumber = function () { return parseInt(window.localStorage.getItem('stepNumber'),10); };
