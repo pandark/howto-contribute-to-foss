@@ -1,7 +1,7 @@
 {
   "name": "How to contribute to a Free and Open Source software project",
   "description": "Todo list for getting involved in Free and Open Source software, to check off as you go.",
-  "launch_path": "/",
+  "launch_path": "/foss-contrib-guide/",
   "installs_allowed_from": ["*"],
   "type": "web",
   "version": "1.0.0",
