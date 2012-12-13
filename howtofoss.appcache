@@ -1,6 +1,7 @@
 CACHE MANIFEST
-# howtofoss 0.1.0
+# howtofoss 1.0.0
 
+CACHE:
 index.html
 behavior.js
 index.html
@@ -10,4 +11,8 @@ lib/html5shiv.js
 lib/l10n.js
 img/checkbox.png
 img/light-hatch.png
+img/highfive.png
+
+FALLBACK:
+img/highfive/ img/highfive.png
 
