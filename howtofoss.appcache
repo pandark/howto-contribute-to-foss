@@ -1,0 +1,13 @@
+CACHE MANIFEST
+# howtofoss 0.1.0
+
+index.html
+behavior.js
+index.html
+locales.ini
+style.css
+lib/html5shiv.js
+lib/l10n.js
+img/checkbox.png
+img/light-hatch.png
+
