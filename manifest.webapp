@@ -1,0 +1,29 @@
+{
+  "name": "How to contribute to a Free and Open Source software project",
+  "description": "Todo list for getting involved in Free and Open Source software, to check off as you go.",
+  "launch_path": "/",
+  "installs_allowed_from": ["*"],
+  "type": "web",
+  "version": "1.0.0",
+  "icons": {
+    "16": "/img/icon-16.png",
+    "30": "/img/icon-30.png",
+    "32": "/img/icon-32.png",
+    "48": "/img/icon-48.png",
+    "60": "/img/icon-60.png",
+    "64": "/img/icon-64.png",
+    "128": "/img/icon-128.png",
+    "256": "/img/icon-256.png"
+  },
+  "developer": {
+    "name": "Adrien 'Pandark' P.",
+    "url": "http://lifeleaks.com/"
+  },
+  "default_locale": "en",
+  "locales": {
+    "fr": {
+      "name": "Comment contribuer à un projet de logiciel Libre et Open Source",
+      "description": "Liste de tâches à réaliser pour contribuer à un logiciel Libre et Open Source, à cocher au fur et à mesure."
+    }
+  }
+}
