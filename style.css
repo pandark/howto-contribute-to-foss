@@ -27,16 +27,21 @@ h1 {
 
 h2 {
   font-size: 2.9em;
-  line-height: 1em;
+  padding: .5em;
   background: rgba(100, 200, 255, 0.3);
   border-radius: 10px;
-  padding: 10px 1em;
+}
+
+h2 span {
+  line-height: 1em;
+  padding-right: .5em;
 }
 
 p, li, dd, dt {
   font-size: 1.6em;
   line-height: 1.4em;
-  padding: 0 1em;
+  padding: 0;
+  margin: .5em 1em;
 }
 
 .step {
@@ -55,9 +60,10 @@ p, li, dd, dt {
 
 .step .expected-time {
   background: rgba(0, 0, 0, 0.13);
-  padding: 10px 20px;
+  padding: 1em;
+  margin: 1em;
   border-radius: 10px;
-  display: inline;
+  display: inline-block;
 }
 
 .step .special {
@@ -79,11 +85,11 @@ p, li, dd, dt {
 
 .checkbox {
   width: 40px;
-  height: 30px;
+  height: 40px;
   float: left;
   vertical-align: middle;
   background: url('img/checkbox.png') no-repeat;
-  background-position: 0 -90px;
+  background-position: 0 -120px;
 }
 
 .step.current .checkbox,
@@ -96,12 +102,12 @@ p, li, dd, dt {
 }
 
 .step.current .checkbox:hover {
-  background-position: 0 -30px;
+  background-position: 0 -40px;
 }
 
 .step.past .checkbox,
 .step.past .checkbox:hover {
-  background-position: 0 -60px;
+  background-position: 0 -80px;
 }
 
 ul li {
